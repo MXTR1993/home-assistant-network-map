@@ -87,12 +87,11 @@ class NetworkMapCard extends HTMLElement {
 
   _getEntities() {
     if (!this._hass || !this._hass.states) return [];
-    return Object.values(this._hass.states).filter(
-      (e) =>
-        e.entity_id.startsWith('binary_sensor.') &&
-        e.attributes &&
-        e.attributes.device_id
-    );
+    return Object.values(this._hass.states).filter((e) => {
+      if (e.entity_id.startsWith('binary_sensor.network_map_')) return true;
+      if (e.entity_id.startsWith('binary_sensor.') && e.attributes && e.attributes.device_id) return true;
+      return false;
+    });
   }
 
   _update() {
@@ -104,6 +103,12 @@ class NetworkMapCard extends HTMLElement {
         node.g.remove();
         this._nodes.delete(id);
       }
+    }
+
+    if (entities.length === 0) {
+      this._showHelpMessage();
+    } else {
+      this._hideHelpMessage();
     }
 
     for (const entity of entities) {
@@ -121,6 +126,42 @@ class NetworkMapCard extends HTMLElement {
       }
     }
   }
+
+  _showHelpMessage() {
+    if (this._helpMessage) return;
+    const svgNS = this._svgNS;
+    const g = document.createElementNS(svgNS, 'g');
+    g.setAttribute('id', 'network-map-help');
+
+    const text = document.createElementNS(svgNS, 'text');
+    text.setAttribute('x', '800');
+    text.setAttribute('y', '500');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('font-size', '24');
+    text.setAttribute('fill', 'var(--primary-text-color, #999)');
+    text.setAttribute('font-family', 'sans-serif');
+    text.textContent = 'Nessun dispositivo trovato.';
+
+    const text2 = document.createElementNS(svgNS, 'text');
+    text2.setAttribute('x', '800');
+    text2.setAttribute('y', '540');
+    text2.setAttribute('text-anchor', 'middle');
+    text2.setAttribute('font-size', '18');
+    text2.setAttribute('fill', 'var(--secondary-text-color, #777)');
+    text2.setAttribute('font-family', 'sans-serif');
+    text2.textContent = 'Aggiungi dispositivi da Impostazioni -> Dispositivi e servizi -> Network Map.';
+
+    g.appendChild(text);
+    g.appendChild(text2);
+    this._svg.appendChild(g);
+    this._helpMessage = g;
+  }
+
+  _hideHelpMessage() {
+    if (this._helpMessage) {
+      this._helpMessage.remove();
+      this._helpMessage = null;
+    }
 
   _createNode(entityId, x, y, online, name, type) {
     const svgNS = this._svgNS;
