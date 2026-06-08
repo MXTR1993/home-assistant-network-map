@@ -162,6 +162,7 @@ class NetworkMapCard extends HTMLElement {
       this._helpMessage.remove();
       this._helpMessage = null;
     }
+  }
 
   _createNode(entityId, x, y, online, name, type) {
     const svgNS = this._svgNS;
