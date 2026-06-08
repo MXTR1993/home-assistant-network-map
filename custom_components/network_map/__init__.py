@@ -37,8 +37,14 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     return True
 
 
+async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Handle options update."""
+    await hass.config_entries.async_reload(entry.entry_id)
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Network Map from a config entry."""
+    entry.async_on_unload(entry.add_update_listener(async_reload_entry))
     coordinator = NetworkMapCoordinator(hass, entry)
     await coordinator.async_config_entry_first_refresh()
 

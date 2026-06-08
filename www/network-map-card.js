@@ -87,8 +87,11 @@ class NetworkMapCard extends HTMLElement {
 
   _getEntities() {
     if (!this._hass || !this._hass.states) return [];
-    return Object.values(this._hass.states).filter((e) =>
-      e.entity_id.startsWith('binary_sensor.network_map_')
+    return Object.values(this._hass.states).filter(
+      (e) =>
+        e.entity_id.startsWith('binary_sensor.') &&
+        e.attributes &&
+        e.attributes.device_id
     );
   }
 
