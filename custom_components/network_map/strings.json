@@ -1,0 +1,82 @@
+{
+  "title": "Network Map",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add your first device",
+        "data": {
+          "name": "Device name",
+          "device_type": "Device type",
+          "ip_address": "IP address",
+          "mac_address": "MAC address",
+          "position_x": "Position X",
+          "position_y": "Position Y"
+        }
+      },
+      "add_device": {
+        "title": "Add device",
+        "data": {
+          "name": "Device name",
+          "device_type": "Device type",
+          "ip_address": "IP address",
+          "mac_address": "MAC address",
+          "position_x": "Position X",
+          "position_y": "Position Y"
+        }
+      },
+      "edit_select": {
+        "title": "Select device to edit",
+        "data": {
+          "device_id": "Device"
+        }
+      },
+      "edit_device": {
+        "title": "Edit device",
+        "data": {
+          "name": "Device name",
+          "device_type": "Device type",
+          "ip_address": "IP address",
+          "mac_address": "MAC address",
+          "position_x": "Position X",
+          "position_y": "Position Y"
+        }
+      },
+      "delete_device": {
+        "title": "Delete device",
+        "data": {
+          "device_id": "Device"
+        }
+      }
+    },
+    "error": {
+      "need_ip_or_mac": "Provide at least an IP or a MAC address",
+      "invalid_ip": "Invalid IP address",
+      "invalid_mac": "Invalid MAC address"
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single instance of Network Map is allowed.",
+      "no_devices": "No devices configured",
+      "device_not_found": "Device not found"
+    }
+  },
+  "services": {
+    "update_position": {
+      "name": "Update position",
+      "description": "Update a device position on the map.",
+      "fields": {
+        "device_id": {
+          "name": "Device ID",
+          "description": "Unique device ID."
+        },
+        "x": {
+          "name": "X coordinate",
+          "description": "Horizontal position."
+        },
+        "y": {
+          "name": "Y coordinate",
+          "description": "Vertical position."
+        }
+      }
+    }
+  }
+}

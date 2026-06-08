@@ -1,0 +1,24 @@
+update_position:
+  name: Update position
+  description: Update a device position on the network map.
+  fields:
+    device_id:
+      name: Device ID
+      description: The unique device ID.
+      required: true
+      selector:
+        text:
+    x:
+      name: X coordinate
+      description: Horizontal position on the map.
+      required: true
+      selector:
+        number:
+          mode: box
+    y:
+      name: Y coordinate
+      description: Vertical position on the map.
+      required: true
+      selector:
+        number:
+          mode: box

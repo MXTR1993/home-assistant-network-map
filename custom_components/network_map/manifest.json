@@ -1,0 +1,11 @@
+{
+  "domain": "network_map",
+  "name": "Network Map",
+  "codeowners": ["@custom"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/custom-components/network_map",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,82 @@
+{
+  "title": "Network Map",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aggiungi il primo dispositivo",
+        "data": {
+          "name": "Nome dispositivo",
+          "device_type": "Tipo dispositivo",
+          "ip_address": "Indirizzo IP",
+          "mac_address": "Indirizzo MAC",
+          "position_x": "Posizione X",
+          "position_y": "Posizione Y"
+        }
+      },
+      "add_device": {
+        "title": "Aggiungi dispositivo",
+        "data": {
+          "name": "Nome dispositivo",
+          "device_type": "Tipo dispositivo",
+          "ip_address": "Indirizzo IP",
+          "mac_address": "Indirizzo MAC",
+          "position_x": "Posizione X",
+          "position_y": "Posizione Y"
+        }
+      },
+      "edit_select": {
+        "title": "Seleziona dispositivo da modificare",
+        "data": {
+          "device_id": "Dispositivo"
+        }
+      },
+      "edit_device": {
+        "title": "Modifica dispositivo",
+        "data": {
+          "name": "Nome dispositivo",
+          "device_type": "Tipo dispositivo",
+          "ip_address": "Indirizzo IP",
+          "mac_address": "Indirizzo MAC",
+          "position_x": "Posizione X",
+          "position_y": "Posizione Y"
+        }
+      },
+      "delete_device": {
+        "title": "Elimina dispositivo",
+        "data": {
+          "device_id": "Dispositivo"
+        }
+      }
+    },
+    "error": {
+      "need_ip_or_mac": "Inserisci almeno un indirizzo IP o un MAC",
+      "invalid_ip": "Indirizzo IP non valido",
+      "invalid_mac": "Indirizzo MAC non valido"
+    },
+    "abort": {
+      "single_instance_allowed": "È consentita una sola istanza di Network Map.",
+      "no_devices": "Nessun dispositivo configurato",
+      "device_not_found": "Dispositivo non trovato"
+    }
+  },
+  "services": {
+    "update_position": {
+      "name": "Aggiorna posizione",
+      "description": "Aggiorna le coordinate di un dispositivo sulla mappa.",
+      "fields": {
+        "device_id": {
+          "name": "ID dispositivo",
+          "description": "ID univoco del dispositivo."
+        },
+        "x": {
+          "name": "Coordinata X",
+          "description": "Posizione orizzontale."
+        },
+        "y": {
+          "name": "Coordinata Y",
+          "description": "Posizione verticale."
+        }
+      }
+    }
+  }
+}
