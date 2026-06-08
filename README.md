@@ -1,3 +1,5 @@
+![Network Map Banner](assets/banner.png)
+
 # Network Map - Custom Component per Home Assistant
 
 Un'integrazione completa per Home Assistant che permette di creare una **mappa di rete interattiva**, monitorare lo stato online/offline dei dispositivi via ping e risolvere automaticamente gli IP dinamici tramite MAC address.

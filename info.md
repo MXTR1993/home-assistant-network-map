@@ -1,3 +1,5 @@
+![Network Map](assets/banner.png)
+
 # Network Map
 
 Visualizza e monitora i dispositivi della tua rete locale su una mappa interattiva direttamente in Home Assistant.
